@@ -1,4 +1,9 @@
 #!/bin/bash
 yum install -y httpd
-rm /etc/httpd/conf.d/welcome.conf
-
+FILE=/etc/httpd/conf.d/welcome.conf
+if [ -f "$FILE" ];
+then
+    rm -rf "$FILE"
+else
+    echo "File $FILE removed already"
+fi
